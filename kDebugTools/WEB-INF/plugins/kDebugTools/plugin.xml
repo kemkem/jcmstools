@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plugin PUBLIC "-//JALIOS//DTD JCMS-PLUGIN 1.4//EN" "http://support.jalios.com/dtd/jcms-plugin-1.4.dtd">
-
 <plugin name="kDebugTools" version="0.1" author="marc bourgeois" license="gpl" initialize="true" jcms="" order="0" url="" jsync="true" appserver="">
   <label xml:lang="fr">kDebugTools</label>
   <description xml:lang="fr">A developper debug tool</description>

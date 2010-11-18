@@ -3,7 +3,6 @@
 
 <%
 	jcmsContext.addCSSHeader("plugins/kDebugTools/css/jtDebug.css");
-	
 	jcmsContext.addJSHeader("plugins/kDebugTools/js/jquery-1.4.2.min.js");
 	jcmsContext.addJSHeader("plugins/kDebugTools/js/jqueryDebug.js");
 	
