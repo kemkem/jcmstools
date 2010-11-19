@@ -95,10 +95,6 @@
   if (!initDone) {
     request.setAttribute("initDone", Boolean.TRUE);
   }
-	
-	
-%>
-
-<%-- This includes kDebugTools, can be deleted --%>
-<%@ include file="/plugins/kDebugTools/jsp/debug.jsp" %>
-<%-- ------------------------------------------ --%>
+%><%
+%><%-- This includes kDebugTools, can be deleted --%><%
+%><%@ include file="/plugins/kDebugTools/jsp/debug.jsp" %>

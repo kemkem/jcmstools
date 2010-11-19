@@ -1,3 +1,31 @@
+._jtD_HeaderContainer
+{
+    height:15px;
+}
+
+._jtD_HeaderButton
+{
+  color:green;
+	background-color:#2D2D2D;
+	border:1px solid #2D2D2D;
+	cursor:pointer;
+	font-family:verdana;
+	font-size:12px;
+	font-weight:bold;
+	height:15px;
+	left:0;
+	position:fixed;
+	text-align:center;
+	top:0;
+	width:15px;
+	z-index:10000;
+}
+
+._jtD_HeaderButtonDisabled
+{
+    color:red;
+}
+
 ._jtD_MainBox
 {
     font-family:helvetica;

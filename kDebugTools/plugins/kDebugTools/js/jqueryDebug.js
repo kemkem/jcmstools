@@ -9,6 +9,11 @@ jQuery(document).ready(function(){
 		var _jtD_MainBoxId = "_jtD_MainBoxId";
 		var _jtD_DetailBoxCloseButtonId = "_jtD_DetailBoxCloseButtonId";
 		
+		jQuery("._jtD_HeaderButton").bind("click", function(data){
+		  jQuery("._jtD_MainBox").toggle();
+		  jQuery("._jtD_HeaderButton").toggleClass("_jtD_HeaderButtonDisabled");
+		});
+		
 		jQuery("._jtD_DetailBoxCloseButton").bind("click", function(data){
 			//jQuery("#_jtD_DetailBoxId" + _jtD_getId(jQuery(this).attr("id"), _jtD_DetailBoxCloseButtonId)).hide();
 			jQuery("#_jtD_DetailBoxId" + _jtD_getId(jQuery(this).attr("id"), _jtD_DetailBoxCloseButtonId)).hide();
