@@ -17,6 +17,7 @@
   </public-files>
   <webapp-files>
   	 <file path="jcore/doInitPage.jsp" />
+     <file path="jcore/doEmptyHeader.jsp" />
   </webapp-files>
 </plugin>
 
