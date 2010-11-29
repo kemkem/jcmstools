@@ -1,10 +1,15 @@
-<%@page import="java.util.Enumeration"%>
-<%@page import="java.util.HashSet"%>
+<%@include file="/jcore/doInitPage.jsp" %><%
+%><%@page import="java.util.Enumeration,java.util.HashSet"%><%
 
-<%
-	jcmsContext.addCSSHeader("plugins/kDebugTools/css/jtDebug.css");
-	jcmsContext.addJSHeader("plugins/kDebugTools/js/jquery-1.4.2.min.js");
-	jcmsContext.addJSHeader("plugins/kDebugTools/js/jqueryDebug.js");
+  // jQuery loading must be done in head section 
+  jcmsContext.addJSHeader("plugins/kDebugTools/js/jquery-1.4.2.min.js");
+  // specific script is at bottom of page
+  // lauching is done using jQuery loading when document is ready
+  jcmsContext.addJavaScript("plugins/kDebugTools/js/jqueryDebug.js");
+
+  jcmsContext.addCSSHeader("plugins/kDebugTools/css/jtDebug.css");
+  
+	
 	
     String portletTitle = null;
     String baseJspFilePath = null;
