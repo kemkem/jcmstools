@@ -1,1 +1,2 @@
-kDebugTools.enable:true
+kDebugTools.enable.boolean:true
+kDebugTools.using.ffox-toolbar.boolean:false

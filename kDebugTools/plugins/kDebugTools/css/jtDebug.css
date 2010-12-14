@@ -1,6 +1,6 @@
 ._jtD_HeaderContainer
 {
-    height:15px;
+    height:17px;
 }
 
 ._jtD_HeaderButton
@@ -12,12 +12,12 @@
 	font-family:verdana;
 	font-size:12px;
 	font-weight:bold;
-	height:15px;
+	height:17px;
 	left:0;
 	position:fixed;
 	text-align:center;
 	top:0;
-	width:15px;
+	width:17px;
 	z-index:10000;
 }
 
@@ -79,7 +79,7 @@
 	position:fixed;
 	background-color:#E1E1E1;
 	text-align:left;
-	top:0;
+	top:17px;
 	left:0;
 	font-weight:400;
 }

@@ -1,7 +1,8 @@
-'JCMS.plugin.kdebugtools'.namespace();
+//'JCMS.plugin.kdebugtools'.namespace();
 
 // -----------------------------------------------------------------
 // 'Static' like object
+/*
 JCMS.plugin.kdebugtools.KDebugToolsUtils = {
   initKDiv : function () {
     var ctxTooltipMenu = $('ctxTooltipMenu');
@@ -12,6 +13,7 @@ JCMS.plugin.kdebugtools.KDebugToolsUtils = {
     }
   }
 };
+*/
 
 function _jtD_getId(str, prefix)
 {
@@ -21,7 +23,7 @@ function _jtD_getId(str, prefix)
 // -----------------------------------------------------------------
 // Onload Initialization
 jQuery(document).ready(function(){
-    JCMS.plugin.kdebugtools.KDebugToolsUtils.initKDiv();
+    //  JCMS.plugin.kdebugtools.KDebugToolsUtils.initKDiv();
 		var isPinned = 0;  //div de debug affich� et conserv� jusqua fermeture ou autre debug affich�
 		var curPinnedId = ""; //id du debug affich� actuellement
 		var _jtD_MainBoxId = "_jtD_MainBoxId";
