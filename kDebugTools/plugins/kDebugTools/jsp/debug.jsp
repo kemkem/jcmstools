@@ -1,132 +1,89 @@
-<%@include file="/jcore/doInitPage.jsp" %><%
-%><%@page import="java.util.Enumeration,java.util.HashSet"%><%
+<%@include file="/jcore/doInitPage.jsp" %><%@page import="java.util.*"%><%
 
-  // jQuery loading must be done in head section 
-  jcmsContext.addJSHeader("plugins/kDebugTools/js/jquery-1.4.2.min.js");
-  // specific script is at bottom of page
-  // lauching is done using jQuery loading when document is ready
-  jcmsContext.addJavaScript("plugins/kDebugTools/js/jqueryDebug.js");
+// jQuery loading must be done in head section 
+jcmsContext.addJSHeader("plugins/kDebugTools/js/jquery-1.4.2.min.js");
+// specific script is at bottom of page
+// lauching is done using jQuery loading when document is ready
+jcmsContext.addJavaScript("plugins/kDebugTools/js/jqueryDebug.js");
+jcmsContext.addCSSHeader("plugins/kDebugTools/css/jtDebug.css");
+	
+final String ATTR_DEBUG_ID = "_jDebug_debugIds";
+final String ATTR_DEBUG_COUNT = "_jDebug_debugCount";
 
-  jcmsContext.addCSSHeader("plugins/kDebugTools/css/jtDebug.css");
-  
-	
-	
-    String portletTitle = null;
-    String baseJspFilePath = null;
-    String templateJspFilePath = null;
-    String portletType = null;
-    final String ATTR_DEBUG_ID = "_jDebug_debugIds";
-    final String ATTR_DEBUG_COUNT = "_jDebug_debugCount";
-    
-    boolean isDebugActive = channel.getProperty("kDebugTools.enable").equals("true") ? true : false;
-	
+boolean isDebugActive = channel.getBooleanProperty("kDebugTools.enable", false);
 
-    if (isDebugActive)
-    {    
-        Category currentCategory = (Category)request.getAttribute(PortalManager.PORTAL_CURRENTCATEGORY);
-        Category portalCategory = (Category)request.getAttribute(PortalManager.PORTAL_PORTALCATEGORY);
-        Category[] ctxCategories = (Category[])request.getAttribute(PortalManager.PORTAL_CTXCATEGORIES);
-        HashSet hDebugIds = null;
-				if (request.getAttribute(ATTR_DEBUG_ID) == null)
-				{
-					hDebugIds = new HashSet();
-					request.setAttribute(ATTR_DEBUG_ID, hDebugIds);
-    			if(ctxCategories.length > 0)
-			    {
-						for(int i = 0; i < ctxCategories.length; i++)
-						{
-							System.out.println("ctx id" + ctxCategories[i]+ "<BR/>");
-						}
-    			}	
-		}
-		else
-		{
-			hDebugIds = (HashSet)request.getAttribute(ATTR_DEBUG_ID);
-		}
-		
-		Integer debugCount;
-		if (request.getAttribute(ATTR_DEBUG_COUNT) == null)
-		{
-			request.setAttribute(ATTR_DEBUG_COUNT, new Integer(0));
-			debugCount = 0;
-		}
-		else
-		{
-			debugCount = ((Integer)request.getAttribute(ATTR_DEBUG_COUNT)) + 1;
-			request.setAttribute(ATTR_DEBUG_COUNT, debugCount);
-		}
-    
-    	PortalElement portalElement = ((PortalElement)request.getAttribute(PortalManager.PORTAL_PORTALELEMENT));
-		JcmsJspContext jspCtx = (JcmsJspContext)request.getAttribute("jcmsContext");
-		boolean display;
-		if(portalElement != null)
-		{
-			String itemClass = "unkClass";
-			String itemTypeLabel = "unkTypeLabel";
-			String itemId = "unkId";
-			String itemTitle = "unkTitle";
-			String itemTemplatePath = "unkTemplatePath";
+if (!isDebugActive) {
+  return;
+}    
+  Category currentCategory = jcmsContext.getCurrentCategory();
+  Category portalCategory = jcmsContext.getPortalCategory();
+  Category[] ctxCategories = jcmsContext.getCtxCategories();
+  Set<String> hDebugIds = (Set<String>)request.getAttribute(ATTR_DEBUG_ID);
+	if (hDebugIds == null) {
+		hDebugIds = new HashSet<String>();
+		request.setAttribute(ATTR_DEBUG_ID, hDebugIds);
+		if(ctxCategories.length > 0) {
+			for(int i = 0; i < ctxCategories.length; i++) {
+	  		System.out.println("ctx id" + ctxCategories[i]+ "<BR/>");
+			}
+		}	
+	} 
 			
-			Channel channel = Channel.getChannel();
-			//itemPub : l'element actuel est une publication
-			Publication itemPub = (Publication)request.getAttribute("publication");
-			display = false;
-			if (!hDebugIds.contains(portalElement.getId()) && itemPub == null)
-			{
-				hDebugIds.add(portalElement.getId());
-				display = true;
-				itemClass = portalElement.getClass().getSimpleName();
-				itemTypeLabel = portalElement.getTypeLabel(channel.getCurrentUserLang());
-				itemId = portalElement.getId();
-				itemTitle = portalElement.getTitle();
-				itemTemplatePath = portalElement.getTemplatePath(jspCtx);
-			}
-			else if (itemPub != null) //query context
-			{
-				itemClass = itemPub.getClass().getSimpleName();
-				itemTypeLabel = itemPub.getTypeLabel(channel.getCurrentUserLang());
-				itemId = itemPub.getId();
-				itemTitle = itemPub.getTitle();
-				itemTemplatePath = itemPub.getTemplatePath(jspCtx);
-				display = true;
-			}
-			if (display)
-			{
-				String idD = itemId + debugCount;
-				String editLink = channel.getCurrentJcmsContext().getBaseUrl() + "types/" + itemClass + "/edit" + itemClass + ".jsp?id=" + itemId;
-				String newLink = "";
-				if (itemPub != null)
-				{
-					newLink = channel.getCurrentJcmsContext().getBaseUrl() + "types/" + itemClass + "/edit" + itemClass + ".jsp?cids=" + currentCategory.getId();
-				}
-				else
-				{
-					newLink = channel.getCurrentJcmsContext().getBaseUrl() + "types/" + itemClass + "/edit" + itemClass + ".jsp";
-				}
+	Integer debugCount;
+	if (request.getAttribute(ATTR_DEBUG_COUNT) == null) {
+		debugCount = 0;
+	} else {
+		debugCount = ((Integer)request.getAttribute(ATTR_DEBUG_COUNT)) + 1;
+	}
+  request.setAttribute(ATTR_DEBUG_COUNT, debugCount);
 
- 				out.println(
-				"<div id=\"_jtD_MainBoxId" + idD + "\" class=\"_jtD_MainBox\">" + 
-					"<div id=\"_jtD_TagTitleId" + idD + "\" class=\"_jtD_TagTitle\">" + itemTypeLabel +"</div>" +
-		
-					"<div id=\"_jtD_TagButtonEditId" + idD + "\" class=\"_jtD_TagButtonEdit _jtD_TagButton _jtD_Button\"><a href=\"" + editLink + "\" ></a>E</div>" +
-					"<div id=\"_jtD_TagButtonNewId" + idD + "\" class=\"_jtD_TagButtonNew _jtD_TagButton _jtD_Button\"><a href=\"" + newLink + "\" ></a>N</div>" +
-					
-					"<div id =\"_jtD_DetailBoxId" + idD + "\" class=\"_jtD_DetailBox\">" +
-						"<div class=\"_jtD_DetailBoxHeader\">" +
-							"<div class=\"_jtD_DetailBoxCloseButton _jtD_DetailBoxButton _jtD_Button\" id =\"_jtD_DetailBoxCloseButtonId" + idD + "\">X</div>" +
-							"<div class=\"_jtD_DetailBoxEditButton _jtD_DetailBoxButton _jtD_Button\" id =\"_jtD_DetailBoxEditButtonId" + idD + "\"><a href=\"" + editLink + "\" ></a>edit</div>" +
-							"<div class=\"_jtD_DetailBoxNewButton _jtD_DetailBoxButton _jtD_Button\" id =\"_jtD_DetailBoxNewButtonId" + idD + "\"><a href=\"" + newLink + "\" ></a>new</div>" +
-							"<div class=\"_jtD_DetailBoxHeaderLabel\">" + itemTypeLabel + "</div></div>" + 
-						
-						"<table>" + 
-							"<tr><td>class</td><td>: " + itemClass + "</td><td>cat id</td><td>: " + currentCategory.getId() + "</td></tr>" + 
-							"<tr><td>id</td><td>: " + itemId + "</td><td>cat name</td><td>: " + currentCategory.getName() + "</td></tr>" + 
-							"<tr><td>title</td><td>: " + itemTitle + "</td><td>portal cat id</td><td>: " + portalCategory.getId() + "</td></tr>" + 
-							"<tr><td>template</td><td>: " + itemTemplatePath + "</td><td>portal cat name</td><td>: " + portalCategory.getName() + "</td></tr>" + 
-						"</table>" + 
-						
-						"</div></div><div style=\"clear:both;\"></div>");
-			}
+  PortalElement portalElement = jcmsContext.getPortlet();
+	if(portalElement != null) {
+		//itemPub : l'element actuel est une publication
+		Publication itemPub = (Publication)request.getAttribute("publication");
+
+		if (itemPub == null) {
+		  if (hDebugIds.contains(portalElement.getId())) {
+		    // this portalElement has already been treated : skip
+		    return;
+		  }
+	    itemPub = portalElement;
+	    // Not to treat a second time
+	    hDebugIds.add(portalElement.getId());
 		}
-    }
+		
+	  String itemClass = itemPub.getClass().getSimpleName();
+	  String itemTypeLabel = itemPub.getTypeLabel(userLang);
+	  String itemId = itemPub.getId();
+	  String itemTitle = itemPub.getTitle();
+	  String itemTemplatePath = itemPub.getTemplatePath(jcmsContext);
+
+		
+		String idD = itemId + debugCount;
+		String baseForLink = jcmsContext.getBaseUrl() + "types/" + itemClass + "/edit" + itemClass + ".jsp"; 
+		String editLink = baseForLink + "?id=" + itemId;
+		String newLink = (itemPub == null) ? baseForLink : baseForLink + "?cids=" + currentCategory.getId();
+%>
+<div id="_jtD_MainBoxId<%= idD %>" class="_jtD_MainBox"> 
+  <div id="_jtD_TagTitleId<%= idD %>" class="_jtD_TagTitle"><%= itemTypeLabel %></div>
+  <div id="_jtD_TagButtonEditId<%= idD %>" class="_jtD_TagButtonEdit _jtD_TagButton _jtD_Button"><a href="<%= editLink %>" ></a>E</div>
+  <div id="_jtD_TagButtonNewId<%= idD %>" class="_jtD_TagButtonNew _jtD_TagButton _jtD_Button"><a href="<%= newLink %>" ></a>N</div>
+  <div id ="_jtD_DetailBoxId<%= idD %>" class="_jtD_DetailBox">
+		<div class="_jtD_DetailBoxHeader">
+				<div class="_jtD_DetailBoxCloseButton _jtD_DetailBoxButton _jtD_Button" id ="_jtD_DetailBoxCloseButtonId<%= idD %>">X</div>
+				<div class="_jtD_DetailBoxEditButton _jtD_DetailBoxButton _jtD_Button" id ="_jtD_DetailBoxEditButtonId<%= idD %>"><a href="<%= editLink %>" ></a>edit</div>
+				<div class="_jtD_DetailBoxNewButton _jtD_DetailBoxButton _jtD_Button" id ="_jtD_DetailBoxNewButtonId<%= idD %>"><a href="<%= newLink %>" ></a>new</div>
+        <div class="_jtD_DetailBoxHeaderLabel"><%= itemTypeLabel %></div>
+    </div>
+		<table> 
+			<tr><td>class</td><td>: <%= itemClass %></td><td>cat id</td><td>: <%= currentCategory.getId() %></td></tr> 
+			<tr><td>id</td><td>: <%= itemId %></td><td>cat name</td><td>: <%= currentCategory.getName() %></td></tr> 
+			<tr><td>title</td><td>: <%= itemTitle %></td><td>portal cat id</td><td>: <%= portalCategory.getId() %></td></tr> 
+			<tr><td>template</td><td>: <%= itemTemplatePath %></td><td>portal cat name</td><td>: <%= portalCategory.getName() %></td></tr> 
+		</table> 
+  </div>
+</div>
+<div style="clear:both;"></div>						
+<%
+}
 %>
