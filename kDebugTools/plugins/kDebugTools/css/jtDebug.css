@@ -38,11 +38,23 @@
 {
     background-color:#2D2D2D;
     color:#E1E1E1;
-    border:1px solid #2D2D2D;
+    /*border:1px solid #2D2D2D;*/
     cursor:pointer;
     text-align:left;
     float:left;
+    /*height:14px;
+    line-height:14px;
+    margin:0;
+    padding:1px;*/
+}
+
+._jtD_TagTitleLabelBox
+{
+    float:left;
     height:14px;
+    line-height:14px;
+    margin:0;
+    padding:1px;
 }
 
 ._jtD_TagButton{
@@ -68,7 +80,7 @@
 {
     color:#2D2D2D;
     background-color:#FF7F00;
-    border:1px solid #FF7F00;
+    /*border:1px solid #FF7F00;*/
 }
 
 ._jtD_DetailBox

@@ -2,7 +2,7 @@
 <!DOCTYPE plugin PUBLIC "-//JALIOS//DTD JCMS-PLUGIN 1.4//EN"
 "http://support.jalios.com/dtd/jcms-plugin-1.4.dtd">
 <plugin name="kDebugTools"
-        version="0.21"
+        version="0.22"
         author="marc bourgeois"
         license="gpl"
         initialize="true"
@@ -21,8 +21,13 @@
   <public-files>
     <directory path="css/" />
     <directory path="js/" />
-    <file path="jsp/debug.jsp" include="INCLUDE_BEFORE_TEMPLATE" />
+    <!-- It would be better, but cannot be used to surround publications ! /-->
+    <!-- file path="jsp/debug.jsp" include="INCLUDE_BEFORE_TEMPLATE" /-->
     <file path="jsp/headerDebug.jsp" include="EMPTY_HEADER_START" />
     <directory path="docs/" />
   </public-files>
+  <webapp-files>
+    <!-- not really clean, but allows surrounding publications ! /-->
+    <file path="jcore/doInitPage.jsp" />
+  </webapp-files>
 </plugin>
