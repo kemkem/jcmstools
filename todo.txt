@@ -2,4 +2,6 @@ todo
 
 enabled by default
 enable hover
-integration ffox tools
+integration ffox tools -> ok
+
+detail box : use inputs
