@@ -1,11 +1,11 @@
-<%@include file="/jcore/doInitPage.jsp" %><%
-%><%@page import="java.util.Enumeration,java.util.HashSet"%><%
+<%@page import="java.util.Enumeration,java.util.HashSet"%><%
 
   // jQuery loading must be done in head section 
-  jcmsContext.addJSHeader("plugins/kDebugTools/js/jquery-1.4.2.min.js");
+  //jcmsContext.addJSHeader("plugins/kDebugTools/js/jquery-1.4.2.min.js");
   // specific script is at bottom of page
   // lauching is done using jQuery loading when document is ready
-  jcmsContext.addJSHeader("plugins/kDebugTools/js/jqueryDebug.js");
+ //jcmsContext.addJSHeader("plugins/kDebugTools/js/jqueryDebug.js");
+ //jcmsContext.addJSHeader("plugins/kDebugTools/js/jquerySearchById.js");
 
   jcmsContext.addCSSHeader("plugins/kDebugTools/css/jtDebug.css");
   

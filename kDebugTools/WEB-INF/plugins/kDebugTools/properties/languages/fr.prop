@@ -1,2 +1,21 @@
 kDebugTools.enable:Activer kDebugTools (true/false)
 kDebugTools.using.ffox-toolbar:Utilisation conjointe avec la barre d'outils greasemonkey firefox
+
+kDebugTools.object_finder.title: Objet 
+kDebugTools.object_finder.title.content: de type contenu
+kDebugTools.object_finder.title.portlet: de type portlet
+kDebugTools.object_finder.title.category: de type catégorie
+kDebugTools.object_finder.title.form: de type formulaire
+kDebugTools.object_finder.title.member: de type membre
+kDebugTools.object_finder.title.group: de type group
+kDebugTools.object_finder.title.unknown: de type inconnu
+kDebugTools.object_finder.title.null: innexistant
+
+kDebugTools.object_finder.label.type: Type
+kDebugTools.object_finder.label.name: Nom
+kDebugTools.object_finder.label.title: Titre
+kDebugTools.object_finder.label.id: Id JCMS
+
+kDebugTools.object_finder.link.edit.text: Editer cet objet
+
+kDebugTools.object_finder.button.close.text: Fermer
