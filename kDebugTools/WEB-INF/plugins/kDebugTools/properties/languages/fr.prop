@@ -1,5 +1,5 @@
-kDebugTools.enable:Activer kDebugTools (true/false)
-kDebugTools.using.ffox-toolbar:Utilisation conjointe avec la barre d'outils greasemonkey firefox
+jdt.frontdebug.enable: Activer front debug
+jdt.frontdebug.visible: Afficher front debug
 
 kDebugTools.object_finder.title: Objet 
 kDebugTools.object_finder.title.content: de type contenu

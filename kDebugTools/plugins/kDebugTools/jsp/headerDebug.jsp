@@ -1,17 +1,17 @@
 <%@ include file='/jcore/doInitPage.jsp' %>
+<%@page import="net.kprod.jdt.CStrings"%>
+
 <%
-if (Channel.getChannel().getCurrentJcmsContext().isInFrontOffice() && channel.getProperty("kDebugTools.enable").equals("true"))
+jcmsContext.addCSSHeader("plugins/kDebugTools/css/jdtFrontDebug.css");
+jcmsContext.addJavaScript("plugins/kDebugTools/js/jdtFrontDebug.js");
+
+if (Boolean.parseBoolean(channel.getProperty(CStrings.JDT_FRONTDEBUG_ENABLE)))
 {
 %>
-<div class="_jtD_HeaderContainer">
-<%
-if (channel.getProperty("kDebugTools.using.ffox-toolbar").equals("false"))
-{
-%>
-<div class="_jtD_HeaderButton">k</div>
-<%
-}
-%>
+<div class="_jdt_HeaderContainer">
+
+<a id="idJdtDisableButton" href="#">disable</a>
+<a id="idJdtVisibleButton" href="#">visible</a>
 </div>
 <%
 }

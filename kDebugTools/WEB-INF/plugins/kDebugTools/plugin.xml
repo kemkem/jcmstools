@@ -2,7 +2,7 @@
 <!DOCTYPE plugin PUBLIC "-//JALIOS//DTD JCMS-PLUGIN 1.4//EN"
 "http://support.jalios.com/dtd/jcms-plugin-1.4.dtd">
 <plugin name="kDebugTools"
-        version="0.3"
+        version="0.3.2"
         author="marc bourgeois"
         license="gpl"
         initialize="true"
@@ -24,7 +24,6 @@
     <directory path="jsp/" />
     <file path="jsp/headerDebug.jsp" include="EMPTY_HEADER_START" />
     <file path="jsp/adminSearchById.jsp" include="ADMIN_HEADER_RIGHT|WORK_HEADER_RIGHT" />
-    
     <directory path="docs/" />
   </public-files>
   <webapp-files>

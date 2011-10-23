@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<signature name="kDebugTools" urid="c" type="plugin" date="1319214680420">
+  <sign file="WEB-INF/plugins/kDebugTools/plugin.xml" signature="SXst8IQcNE0WTqsgbycCsQ==" />
+  <sign file="WEB-INF/plugins/kDebugTools/properties/languages/en.prop" signature="DG/KyDbiQYdFAsqOPsipyA==" />
+  <sign file="WEB-INF/plugins/kDebugTools/properties/languages/fr.prop" signature="9hDuXDDZz3E81wM8v6ZSmw==" />
+  <sign file="WEB-INF/plugins/kDebugTools/properties/plugin.prop" signature="25yXUpA0iJ6pHdg0DLe+WA==" />
+  <sign file="jcore/doInitPage.jsp" signature="Yx5wpDsVERMzu2w03Y1ykw==" />
+  <sign file="plugins/kDebugTools/css/jdtFrontDebug.css" signature="LbFvFlWZJeFhjfMvXWy0pQ==" />
+  <sign file="plugins/kDebugTools/css/jtDebug.css" signature="LbFvFlWZJeFhjfMvXWy0pQ==" />
+  <sign file="plugins/kDebugTools/js/jquery-1.4.2.min.js" signature="EAku7lY97C3Kgrd9LPWhrg==" />
+  <sign file="plugins/kDebugTools/js/jqueryDebug.js" signature="rGqOT7ERFYxr4CLxO0sA+w==" />
+  <sign file="plugins/kDebugTools/js/jquerySearchById.js" signature="Ku52igxdzuP7KL74FlzCGQ==" />
+  <sign file="plugins/kDebugTools/js/kDebug.js" signature="jcwPjiKpOoSgEU5CegoXcw==" />
+  <sign file="plugins/kDebugTools/jsp/adminSearchById.jsp" signature="WWx6H4yXYFgIyhrCQcgTnQ==" />
+  <sign file="plugins/kDebugTools/jsp/ajaxFindById.jsp" signature="VE/oe4JaTdl3G5vO/SSHXg==" />
+  <sign file="plugins/kDebugTools/jsp/ajaxSessionSaveVisibleState.jsp" signature="WDrTy50hNol15jJZZi5/aQ==" />
+  <sign file="plugins/kDebugTools/jsp/debug.jsp" signature="1B2M2Y8AsgTpgAmY7PhCfg==" />
+  <sign file="plugins/kDebugTools/jsp/debug.old.jsp" signature="mhBq63PJIoyZfWhMJ9Alqg==" />
+  <sign file="plugins/kDebugTools/jsp/headerDebug.jsp" signature="kFPCCdV6qbIgxCb5HruT3w==" />
+  <sign file="plugins/kDebugTools/jsp/headerDebug.old.jsp" signature="rssN40r4kCY3fuXgI2V9uQ==" />
+  <sign file="plugins/kDebugTools/jsp/storeSave.jsp" signature="jgyeyK+k1mEQdZfYgjekLQ==" />
+</signature>
+

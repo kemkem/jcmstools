@@ -1,2 +1,2 @@
-kDebugTools.enable.boolean:true
-kDebugTools.using.ffox-toolbar.boolean:false
+jdt.frontdebug.enable.boolean: true
+jdt.frontdebug.visible.boolean: true
